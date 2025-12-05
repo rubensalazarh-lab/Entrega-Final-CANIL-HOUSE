@@ -1,0 +1,243 @@
+body {
+    background-color: #FDF6F0; /* Color madre perla */
+    font-family: 'Roboto', sans-serif;
+    position: relative;
+    margin: 0;
+    padding: 0;
+}
+
+/* Marca de agua con logo o patrón */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../media/imagenes/isologo1_transparente.png'); /* Canil logo */
+    background-repeat: repeat;
+    background-position: center;
+    background-size: 150px 150px;
+    opacity: 0.05;  /* Muy sutil */
+    z-index: -1;
+    pointer-events: none;
+}
+
+.titulo-imagen {
+    display: flex;
+    justify-content: space-between; /* <<< SEPARA los 3 elementos */
+    align-items: center;
+    padding: 0 40px 15px; /* margen */
+    margin-top: 20px;
+}/* separación entre logo - fondo - iconos */
+
+
+.contenedor-logo .imagen-logo {
+    width: 120px;
+}
+
+/* Forma-fondo con título centrado */
+.forma-fondo {
+    width: 450px;
+    height: 80px;
+    background-image: url("../media/imagenes/fondo_forma.png");
+    background-size: cover;
+    background-position: center;
+
+    display: flex;
+    justify-content: center; /* centra horizontal */
+    align-items: center;     /* centra vertical */
+}
+
+.titulo {
+    font-family: "Roboto", sans-serif;
+    font-size: 2.5rem;
+    color: rgb(39, 36, 36);
+    text-shadow: 2px 2px 5px black;
+    margin: 0;
+}
+
+/* Iconos en fila */
+.iconos {
+    display: flex;
+    gap: 25px;
+}
+
+/* Cada icono */
+.icono {
+    position: relative;  /* importante para superponer el badge */
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+/* Imagen de cada icono */
+.icono img {
+    max-width: 70%;
+    max-height: 70%;
+    transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+/* Efecto hover sobre icono */
+.icono:hover img {
+    transform: scale(1.15);
+    filter: brightness(1.2);
+}
+
+/* Badge rojo para carrito */
+.badge-carrito {
+    position: absolute;
+    margin-top: 0;                  
+    left: 50%;                /* centro horizontal del span */
+    transform: translateX(-50%) translateY(-50%); /* centrado exacto */
+    width: 17px;
+    height: 17px;
+    background: red;
+    color: white;
+    font-size: 13px;
+    font-weight: bold;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none;     /* para que el click pase al carrito */
+}
+/* Ajuste para tablets y móviles */
+@media (max-width: 850px) {
+    .iconos {
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .icono {
+        width: 45px;
+        height: 45px;
+    }
+}
+
+
+
+@media (max-width: 850px) {
+    .titulo-imagen {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 25px;
+    }
+
+    .contenedor-logo {
+        order: 1;
+    }
+
+    .forma-fondo {
+        order: 2;
+        width: 90%;
+        max-width: 350px;
+    }
+
+    .iconos {
+        order: 3;
+        justify-content: center;
+    }
+}
+
+
+/* Layout de 3 columnas */
+.main-contenido {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;           /* Espacio entre columnas */
+    padding: 20px;
+    flex-wrap: wrap;     /* Permite que se ajuste en pantallas pequeñas */
+}
+
+
+
+/* Columna izquierda */
+.columna-izquierda {
+    flex: 1 1 20%;       /* Crece y se encoge, base 20% */
+    min-width: 200px;    /* Evita que sea demasiado pequeña */
+}
+
+/* Columna central */
+.columna-central {
+    flex: 2 1 50%;       /* Crece el doble que los laterales */
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;     /* Permite que las imágenes se acomoden en filas si la pantalla es pequeña */
+}
+
+/* Imagen destacada con overlay */
+.imagen-destacada {
+    position: relative;
+    width: 45%;          /* Cada imagen ocupa menos de la mitad de la sección central */
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.imagen-destacada img {
+    width: 100%;
+    display: block;
+    opacity: 0.8;
+    transition: all 0.3s ease;
+}
+
+.imagen-destacada:hover img {
+    opacity: 1;
+    transform: scale(1.05);
+}
+
+/* Texto sobre la imagen */
+.texto-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #04c5f5;
+    font-size: 2rem;
+    font-weight: bold;
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
+    pointer-events: none;
+}
+
+/* Columna derecha */
+.columna-derecha {
+    flex: 1 1 20%;
+    min-width: 200px;
+}
+
+/* Ajustes para iframe */
+.columna-derecha iframe {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16/9;   /* Mantiene proporción */
+}
+
+/* Responsivo: apilar columnas en pantallas pequeñas */
+@media (max-width: 1000px) {
+    .main-contenido {
+        flex-direction: column;
+    }
+
+    .columna-izquierda,
+    .columna-central,
+    .columna-derecha {
+        width: 100%;
+        flex: 1 1 100%;
+    }
+
+    .columna-central {
+        justify-content: center;
+    }
+
+    .imagen-destacada {
+        width: 80%;          /* Imágenes más grandes en móviles */
+        margin: 10px auto;
+    }
+}
+
+

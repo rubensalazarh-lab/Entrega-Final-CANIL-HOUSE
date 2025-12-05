@@ -1,0 +1,345 @@
+*{
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+
+.navegacion a {
+  font-family: 'Roboto', sans-serif;
+}
+
+.encabezado {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 50px;         /* grosor de la sección “línea” */
+}
+
+.encabezado .linea-lado {
+  flex: 1;
+  height: 6px;           /* grosor de la línea lateral — ajustable */
+  background-color: #000;
+}
+
+/* Span central contenedor del logo */
+.encabezado .logo-medio {
+  margin: 0 5px ;        /* separación entre líneas y logo en escritorio */
+}
+
+#logo_encabezado {
+  display: block;
+  width: 250px;           /* tamaño fijo para escritorio */
+  height: auto;
+}
+
+/* Media query para pantallas más pequeñas */
+@media (max-width: 768px) {
+  .encabezado .logo-medio {
+    margin: 0 3px;        /* menor separación en pantallas pequeñas */
+  }
+  #logo_encabezado {
+    width: 150px;          /* tamaño reducido para tablets/móviles */
+  }
+}
+
+@media (max-width: 480px) {
+  .encabezado {
+    height: 40px;          /* quizá menor grosor para móviles */
+  }
+  .encabezado .linea-lado {
+    height: 3px;           /* línea más fina para móviles */
+  }
+  .encabezado .logo-medio {
+    margin: 0 2px;         /* aún menor separación en móviles muy pequeños */
+  }
+  #logo_encabezado {
+    width: 100px;          /* tamaño mínimo para móvil muy pequeño */
+  }
+}
+
+.titulo-imagen {
+  position: relative;
+  display: flex;
+  align-items: center;   /* alinear todo a la izquierda */
+  justify-content: left; /* centrar todo horizontalmente */
+  width: 100%;
+  gap: 20px; /* espacio entre imagen y texto */
+  padding: 20px 0; 
+}
+.contenedor-logo {
+  position: relative;
+  display: flex;
+  align-items: right;
+  justify-content: right;
+}
+.forma-fondo {
+  position: absolute;
+  /* tamaño para escritorio */
+  width: 500px;        /* ancho suficiente para “alargado” */
+  height: 120px;       /* alto según el tamaño del título */
+  background-color: #e0e0e0; /* gris claro */
+  left: 50%;           /* centrar aproximado */
+  top: 50%;
+  /* alternativo: usar clip-path para más control */
+  transform: translate(-50%, -50%) skew(-15deg); /* efecto de paralelogramo alargado */
+  z-index: 0;
+}
+
+.imagen-logo { 
+  width: 250px; /* tamaño para escritorio */
+  height: auto;
+  z-index: 1;
+  margin-left: 20px;
+}
+.titulo {
+  position: relative;
+  z-index: 2;
+  font-size: 3rem;      /* grande para escritorio */
+  color: #000;          /* negro o color que contraste */
+  margin: 0;
+  padding: 0 20px;      /* espacio interno para que el texto no se corte en los laterales */
+  white-space: nowrap;
+}
+
+.iconos {
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+  display: flex;
+  gap: 15px;
+  z-index: 3;
+}
+
+.icono {
+  width: 60px;
+  height: 60px;
+  overflow: hidden;
+}
+.icono img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* Ajusta la imagen sin distorsionarla */
+}
+
+@media (max-width: 768px) {
+    .titulo-imagen {
+    flex-direction: column;
+    align-items: center;
+  }
+  .forma-fondo {
+    width: 300px;
+    height: 90px;
+  }
+  .imagen-logo {
+    width: 150px;
+  }
+  .titulo {
+    font-size: 2rem;
+  }
+   .iconos {
+    position: relative;
+    top: auto;
+    right: auto;
+    transform: none;
+    justify-content: center;
+    margin-top: 20px;
+    gap: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .forma-fondo {
+    width: 300px;
+    height: 90px;
+
+  }
+  .imagen-logo {
+    width: 150px;
+  }
+  .titulo-imagen {
+    flex-direction: column; /* opción: imagen encima, texto debajo para móviles */
+    text-align: center;
+  }
+  .titulo {
+    font-size: 1.5rem;
+    margin: 20px 0 0 0;
+  }
+ .icono {
+    width: 40px;     /* tamaño mínimo para móvil pequeño */
+    height: 40px;
+  }
+  .iconos {
+    margin-top: 10px;
+    gap: 10px;
+  }
+}
+
+
+/* Efecto hover para los iconos: Iluminación azul-cielo */
+.icono {
+  width: 60px;
+  height: 60px;
+  overflow: hidden;
+  transition: transform 0.3s ease, filter 0.3s ease, box-shadow 0.3s ease;
+}
+
+.icono img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: none;
+}
+
+.icono:hover img {
+  transform: scale(1.1);
+  filter: hue-rotate(200deg) saturate(200%) brightness(130%);
+}
+
+.icono:hover {
+  box-shadow: 0 0 10px rgba(135, 206, 250, 0.7),
+              0 0 20px rgba(135, 206, 250, 0.4);
+}
+
+
+/* Estilo base para los botones de navegación */
+.navegacion ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin: 0;
+  flex-wrap: wrap; /* Permite que los elementos se ajusten a nuevas líneas */
+}
+
+.navegacion a {
+  display: inline-block;
+  padding: 12px 24px;
+  background-color: #d3d3d3; /* gris claro */
+  color: #000; /* letra negra */
+  text-decoration: none;
+  border: 3px solid #000; /* borde negro */
+  border-radius: 8px;
+  font-family: 'Roboto', sans-serif; /* fuente personalizada */
+  font-weight: 600;
+  text-align: center;
+  transition: all 0.3s ease;
+  flex: 1 1 200px; /* Hace que los elementos ocupen al menos 200px y se ajusten */
+  max-width: 300px; /* Limita el ancho máximo de cada botón */
+  box-sizing: border-box; /* Incluye el padding y border en el ancho total */
+}
+
+/* Efecto hover: iluminación azul celeste */
+.navegacion a:hover {
+  background-color: #87CEFA; /* azul celeste */
+  color: #fff; /* letra blanca */
+  transform: scale(1.1);
+  box-shadow: 0 0 10px rgba(135, 206, 250, 0.7), 0 0 20px rgba(135, 206, 250, 0.4);
+}
+
+/* Estilo para el estado activo (cuando se hace clic) */
+.navegacion a:active {
+  background-color: #4682B4; /* azul acero */
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+/* Estilo responsivo para pantallas pequeñas */
+@media (max-width: 768px) {
+  .navegacion ul {
+    justify-content: flex-start; /* Alinea los elementos al inicio */
+  }
+}
+
+/* --- ESTILO DEL LINK ACTIVO EN EL MENÚ --- */
+nav.navegacion a.activo {
+    color: white !important;
+    font-weight: bold;
+    background-color: #555; /* Si querés que el fondo cambie también */
+    border-radius: 5px;
+}
+
+
+
+/* Contenedor del video */
+.video-container {
+    width: 100%;
+    max-width: 1200px;    /* Opcional */
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
+    height: 300px;        /* Altura fija para simular un banner */
+}
+
+/* Video */
+.video-container video {
+    width: 100%;
+    height: 100%;         /* Ocupa toda la altura del contenedor */
+    object-fit: cover;    /* Llena el contenedor recortando si es necesario */
+    display: block;
+}
+
+
+
+
+
+/* Estilos generales del footer */ 
+.footer {
+    background-color: #fdf6f0;  /* tono madre perla */
+    padding: 20px;
+    text-align: center;
+    border-top: 2px solid #ddd;
+    font-family: 'Roboto', sans-serif;
+    position: relative;
+}
+
+/* Contenedor de redes sociales */
+.redes-sociales {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;              /* espacio entre íconos */
+    margin-top: 10px;
+}
+
+/* Íconos */
+.redes-sociales img {
+    width: 40px;            /* tamaño para escritorio */
+    height: 40px;
+    transition: transform 0.3s ease, opacity 0.3s ease, filter 0.3s ease, box-shadow 0.3s ease;
+    opacity: 0.9;
+    cursor: pointer;
+}
+
+/* Efecto hover con brillo celeste */
+.redes-sociales img:hover {
+    transform: scale(1.1);
+    opacity: 1;
+    filter: drop-shadow(0 0 6px #00bfff); /* brillo azul celeste */
+    box-shadow: 0 0 10px rgba(0,191,255,0.5); /* resplandor suave adicional */
+}
+
+/* Versión responsiva */
+@media (max-width: 768px) {
+    .redes-sociales {
+        gap: 15px;
+    }
+
+    .redes-sociales img {
+        width: 30px;
+        height: 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    .redes-sociales {
+        flex-wrap: wrap; /* Si el espacio es muy pequeño, se acomodan en varias filas */
+        gap: 10px;
+    }
+
+    .redes-sociales img {
+        width: 25px;
+        height: 25px;
+    }
+}
+

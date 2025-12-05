@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Carrito de Compras – Canil House</title>
+
+    <link rel="stylesheet" href="../css/carrito.css">
+    <link rel="icon" href="../media/imagenes/isologo1.ico" />
+</head>
+
+<body>
+
+<header class="carrito-header">
+    <h1>🛒 Carrito de Compras</h1>
+
+    <a href="favoritos.html" class="favoritos-btn">
+        ⭐ Favoritos
+    </a>
+
+    <a href="../pages/galeria.html" class="volver">⟵ Volver a Productos</a>
+</header>
+
+<main class="carrito-contenido">
+
+    <div id="lista-carrito" class="lista-carrito"></div>
+
+    <div class="totales">
+        <h2>Total: $<span id="total-general">0</span></h2>
+        <button id="btn-pagar" class="btn-pagar">PAGAR</button>
+        <button id="btn-vaciar" class="btn-vaciar">Vaciar Carrito</button>
+    </div>
+
+</main>
+
+<script src="../js/carrito.js"></script>
+
+</body>
+</html>

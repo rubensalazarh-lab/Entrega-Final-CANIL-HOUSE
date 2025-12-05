@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/estilo_general.css">
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="icon" href="./media/imagenes/isologo1.ico" />
+    <title> Inicio_Canil_House</title>
+</head>
+<body>
+    <header>
+        <section class="encabezado">
+            <span class="linea-lado izquierda"></span>
+            <span class="logo-medio">
+                <img src="../media/imagenes/logo_transparente.png" id="logo_encabezado" alt="Logo_canil_house">
+            </span>
+            <span class="linea-lado derecha"></span>
+        </section>
+        <section class="titulo-imagen">
+            <div class="contenedor-logo">
+                <img src="../media/imagenes/isologo1_transparente.png" alt="Isologo Canil House" class="imagen-logo">
+            </div>
+            <div class="forma-fondo">
+                <h1 class="titulo">CANIL HOUSE</h1>
+            </div>
+            
+            <div class="iconos">
+                <span class="icono lupa">
+                    <img src="../media/imagenes/logo_lupa.png" alt="Buscar">
+                </span>
+                <span class="icono usuario">
+                    <img src="../media/imagenes/logo_usuario.png" alt="Usuario">
+                </span>
+                <span class="icono carrito">
+                    <a href="./pages/carrito.html">
+                        <img src="../media/imagenes/logo_carrito.png" alt="Carrito">
+                        <span class="badge-carrito" id="badge-carrito">0</span>
+                    </a>
+                </span>
+             </div>
+        </section>
+        <nav class="navegacion">
+            <ul>
+                <li><a href="../index.html">Inicio</a></li>
+                <li><a href="./pages/sobre_nosotros.html">Sobre Nosotros</a></li>
+                <li><a href="./pages/servicios.html">Servicios</a></li>
+                <li><a href="./pages/galeria.html">Productos</a></li>
+                <li><a href="./pages/asistencia.html">Asistencia</a></li>
+            </ul>
+        </nav>
+        <div class="video-container">
+            <br />
+            <video controls poster="tobias.jpg" autoplay>
+                <source src="./media/videos/tobias.mp4" type="video/mp4">
+                Tu navegador no soporta el elemento de video.
+            </video>
+            <br />
+        </div>
+    </header>
+    <main class="main-contenido">
+  <!-- Columna izquierda -->
+  <article class="columna-izquierda">
+    <h2>Noticias</h2>
+    <br />
+    <h3>Cómo entrenar a un Yorkie</h3>
+    <br />
+    <p>El pequeño yorkshire terrier es una de las razas más populares del mundo debido a su gran personalidad y su llamativa ternura. A pesar de ser pequeño, el territorial e inteligente yorkie es un excelente perro guardián. Sin embargo, sus rasgos de comportamiento específicos hacen que sea necesario entrenarlo al menos en las órdenes básicas de obediencia; de lo contrario, se volverá una mascota incontrolable. So deseas entrenar a tu yorkie, tendrás a un ávido aprendiz que comprenderá la mayoría de las órdenes básicas con rapidez. <a href="https://es.wikihow.com/entrenar-a-un-Yorkie">Continua Leyendo</a></p>
+  </article>
+
+  <!-- Columna central -->
+  <section class="columna-central">
+    <div class="imagen-destacada">
+      <h2>Productos Destacados</h2>
+      <br />
+      <img src="./media/imagenes/productos/accesorios/ac001.png" alt="Producto 1">
+      <span class="texto-overlay">2x1</span>
+    </div>
+    <div class="imagen-destacada">
+        <br />
+        <br />
+        <br /> 
+      <img src="./media/imagenes/productos/juguetes/producto_j003.png" alt="Producto 2">
+      <span class="texto-overlay">2x1</span>
+    </div>
+  </section>
+
+  <!-- Columna derecha (aside existente) -->
+  <aside class="columna-derecha">
+    <h2>Noticias</h2>
+    <br />
+    <h3>Logra salvarle la vida tras quedar atorado en el ascensor.</h3>
+    <br />
+    <iframe width="517" height="646" src="https://www.youtube.com/embed/gXdx_htJZQU" title="El mensaje del vecino que le salvó la vida a un perro en que quedó colgado del ascensor" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen=""></iframe>
+  </aside>
+</main>
+    <footer>
+        <section>
+            <br />
+            <br />
+            <h3> <a href="./formularios/mensajes_opinion.html">Dejanos tu comentario</a> </h3>       
+        </section>
+        <section>
+            <p>© 2025 Canil House. Todos los derechos reservados.</p>
+        </section>
+        <div class="redes-sociales">
+            <a href="https://www.facebook.com/CanilHouse" target="_blank">
+                <img src="./media/imagenes/facebook.png" alt="Facebook" class="icono-redes">
+            </a>
+            <a href="https://www.instagram.com/CanilHouse" target="_blank">
+                <img src="./media/imagenes/instagram.png" alt="Instagram" class="icono-redes">
+            </a>
+            <a href="https://wa.me/:" target="_blank">
+                <img src="./media/imagenes/whatsapp.png" alt="Whatsapp" class="icono-redes">
+            </a>
+        </div>
+        <br />
+        <br />
+    </footer>
+    <script src="./js/inicializar_carrito.js"></script>
+    <script src="./js/menu_activo.js"></script>
+</body>
+</html>

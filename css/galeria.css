@@ -1,0 +1,329 @@
+body {
+    background-color: #ecc8ed; 
+    font-family: 'Roboto', sans-serif;
+    position: relative;
+    margin: 0;
+    padding: 0;
+}
+
+/* Marca de agua con logo o patrón */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../media/imagenes/isologo1_transparente.png'); /* Canil logo */
+    background-repeat: repeat;
+    background-position: center;
+    background-size: 150px 150px;
+    opacity: 0.05;  /* Muy sutil */
+    z-index: -1;
+    /*pointer-events: none;*/
+}
+
+.titulo-imagen {
+    display: flex;
+    justify-content: space-between; /* <<< SEPARA los 3 elementos */
+    align-items: center;
+    padding: 0 40px 15px; /* margen */
+    margin-top: 20px;
+}/* separación entre logo - fondo - iconos */
+
+
+.contenedor-logo .imagen-logo {
+    width: 120px;
+}
+
+/* Forma-fondo con título centrado */
+.forma-fondo {
+    width: 450px;
+    height: 80px;
+    background-image: url("../media/imagenes/fondo_forma.png");
+    background-size: cover;
+    background-position: center;
+
+    display: flex;
+    justify-content: center; /* centra horizontal */
+    align-items: center;     /* centra vertical */
+}
+
+.titulo {
+    font-family: "Roboto", sans-serif;
+    font-size: 2.5rem;
+    color: rgb(39, 36, 36);
+    text-shadow: 2px 2px 5px black;
+    margin: 0;
+}
+
+/* Iconos en fila */
+.iconos {
+    display: flex;
+    gap: 25px;
+}
+
+/* Cada icono */
+.icono {
+    position: relative;  /* importante para superponer el badge */
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+/* Imagen de cada icono */
+.icono img {
+    max-width: 70%;
+    max-height: 70%;
+    transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+/* Efecto hover sobre icono */
+.icono:hover img {
+    transform: scale(1.15);
+    filter: brightness(1.2);
+}
+
+/* Badge rojo para carrito */
+.badge-carrito {
+    position: absolute;
+    margin-top: 0;                  
+    left: 50%;                /* centro horizontal del span */
+    transform: translateX(-50%) translateY(-50%); /* centrado exacto */
+    width: 17px;
+    height: 17px;
+    background: red;
+    color: white;
+    font-size: 13px;
+    font-weight: bold;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none;     /* para que el click pase al carrito */
+}
+/* Ajuste para tablets y móviles */
+@media (max-width: 850px) {
+    .iconos {
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .icono {
+        width: 45px;
+        height: 45px;
+    }
+}
+
+
+
+@media (max-width: 850px) {
+    .titulo-imagen {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 25px;
+    }
+
+    .contenedor-logo {
+        order: 1;
+    }
+
+    .forma-fondo {
+        order: 2;
+        width: 90%;
+        max-width: 350px;
+    }
+
+    .iconos {
+        order: 3;
+        justify-content: center;
+    }
+}
+
+
+
+
+/* Contenedor principal */
+.productos-main {
+  text-align: center;
+  padding: 40px;
+  background-color: #fdf6f0; /* tono madre perla */
+  font-family: 'Roboto', sans-serif;
+}
+
+/* Título centrado */
+.productos-main h2 {
+  font-size: 2rem;
+  margin-bottom: 40px;
+  color: #333;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+/* Galería 3x3 */
+.galeria-productos {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 columnas */
+  gap: 50px;
+  justify-content: center;
+}
+
+/* Cada producto */
+/* Tarjeta del producto */
+.producto {
+  width: 250px;                 /* ancho tarjeta */
+  height: 350px;                /* alto tarjeta */
+  border: #333 solid 3px;
+  border-radius: 10px;
+  background: white;
+  
+  padding: 15px;                /* MARGEN IGUAL EN TODOS LOS LADOS */
+  box-sizing: border-box;       /* evita que el padding agrande la tarjeta */
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  overflow: hidden;
+
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  position: relative;
+}
+
+/* Imagen dentro de la tarjeta */
+.producto img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;          /* NO recorta, se adapta */
+  display: block;
+}
+
+/* Hover de resplandor azul celeste */
+.producto:hover {
+  box-shadow: 0 0 25px rgba(0, 191, 255, 0.8); /* brillo celeste */
+  transform: translateY(-4px);                 /* pequeño levantamiento */
+}
+
+
+/* Contenedor superpuesto */
+.overlay-info {
+  position: absolute;
+  bottom: 0;            
+  left: 0;
+  width: 100%;          
+  height: 50%;          /* mitad de la tarjeta */
+  
+  background: rgba(240, 240, 240, 0.85); /* gris claro tipo marca de agua */
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  padding: 10px;
+  box-sizing: border-box;
+
+  opacity: 0;           /* oculto inicialmente */
+  transform: translateY(20px); /* leve desplazamiento hacia abajo */
+  transition: opacity 0.3s ease, transform 0.3s ease;
+
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+/* Cuando se pasa el mouse sobre la tarjeta → aparece */
+.producto:hover .overlay-info {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.overlay-info h3,
+.overlay-info p,
+.overlay-info span {
+  margin: 3px 0;
+  color: #333;
+}
+
+.overlay-info .precio {
+  font-weight: bold;
+  color: #0099cc;      /* celeste elegante */
+  font-size: 1.2rem;
+}
+
+/* Panel negro en parte superior interna */
+.panel-controles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 35px;
+
+    background: rgba(0, 0, 0, 0.75);
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    align-items: center;
+    text-align: center;
+
+    color: white;
+    font-size: 1.2rem;
+    border-bottom: 1px solid #555;
+    z-index: 10;
+}
+
+/* Separadores gris claro */
+.panel-controles span {
+    border-right: 1px solid #666;
+    padding: 5px 0;
+    cursor: pointer;
+    user-select: none;
+}
+
+/* Último sin borde */
+.panel-controles span:last-child {
+    border-right: none;
+}
+
+/* Efecto visual al presionar */
+.panel-controles span:active {
+    background: rgba(255,255,255,0.2);
+}
+
+/* Corazón rojo al activar favorito */
+.panel-controles .btn-favorito.fav-activo {
+    color: red;
+    font-weight: bold;
+}
+
+
+/* 📱 Tablet (2 columnas) */
+@media (max-width: 900px) {
+  .galeria-productos {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+
+  .productos-main h2 {
+    font-size: 1.7rem;
+  }
+}
+
+/* 📱 Celular (1 columna) */
+@media (max-width: 600px) {
+  .galeria-productos {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .productos-main {
+    padding: 20px;
+  }
+
+  .productos-main h2 {
+    font-size: 1.5rem;
+  }
+}
